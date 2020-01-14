@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Test Extension Options</title>
+    <link rel="stylesheet"
+        href="../libs/pure-min.css">
+    <link rel="stylesheet"
+        href="../styles/options.css">
+  </head>
+
+  <body>
+    <div class="l-wrapper">
+      <div class="l-box">
+        <section class="o-app-header">
+          <img class="o-app-header__logo" src="../images/logo/logo-128.png" alt="Jira branch helper logo">
+          <h1 class="o-app-header__title">
+            Jira branch helper
+            <span class="o-app-header__author">by Patryk Gałuszka</span>
+          </h1>
+        </section>
+
+        <section class="o-options-section o-app-settings">
+          <h2>Settings</h2>
+          <div class="o-test-box">
+            <h3 class="o-test-box__header">Test variables</h3>
+            <form id="testting-form" class="o-test-box__form pure-form pure-form-stacked">
+              <fieldset>
+                <div class="pure-g">
+                  <div class="pure-u-1-3">
+                      <label class="o-input-label" for="issue-id">issueId</label class="o-input-label">
+                      <div class="o-input-n-btn">
+                        <input id="issue-id"
+                            class="o-input-n-btn__input pure-u-23-24"
+                            type="text"
+                            name="issue-id"
+                            placeholder="">
+                        <div class="o-input-n-btn__btn o-input-n-btn__btn--reset js-reset-btn"
+                            data-reset-target-id="issue-id"
+                            title="Reset to default">
+                        </div>
+                      </div>
+                  </div>
+      
+                  <div class="pure-u-2-3">
+                    <label class="o-input-label" for="issue-name">issueName</label>
+                    <div class="o-input-n-btn">
+                      <input id="issue-name"
+                          class="o-input-n-btn__input pure-u-1"
+                          type="text"
+                          name="issue-name"
+                          placeholder="">
+                      <div class="o-input-n-btn__btn o-input-n-btn__btn--reset js-reset-btn"
+                          data-reset-target-id="issue-name"
+                          title="Reset to default">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <form id="settings-form" class="pure-form pure-form-stacked">
+            <fieldset>
+              <label class="o-input-label">issueName middlewares</label>
+              <label for="issue-name-mid-to-latin"
+                  class="pure-checkbox">
+                <input name="issue-name-mid"
+                    id="issue-name-mid-to-latin"
+                    type="checkbox"
+                    value="toLatin">
+                convert <strong>to latin</strong>
+              </label>
+              <label for="issue-name-mid-strip-bracket-tags"
+                  class="pure-checkbox">
+                <input name="issue-name-mid"
+                    id="issue-name-mid-strip-bracket-tags"
+                    type="checkbox"
+                    value="stripBracketTags">
+                <strong>strip bracket tags</strong>(ie. "<strike>[BUG]</strike> Issue name")
+              </label>
+              <label for="issue-name-mid-only-digits-orlatin-letters"
+                  class="pure-checkbox">
+                <input name="issue-name-mid"
+                    id="issue-name-mid-only-digits-orlatin-letters"
+                    type="checkbox"
+                    value="onlyDigitsOrLatinLetters">
+                leave <strong>only digits or latin letters</strong>, convert rest to spaces
+              </label>
+              <label for="issue-name-mid-reduce-spaces"
+                  class="pure-checkbox">
+                <input name="issue-name-mid"
+                    id="issue-name-mid-reduce-spaces"
+                    type="checkbox"
+                    value="reduceSpaces">
+                <strong>reduce spaces</strong> by trimming edge whitespace, remove duplicates
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <label class="o-input-label" for="branch-naming">Branch naming pattern</label>
+              <div class="o-input-n-btn">
+                <input id="branch-naming"
+                    class="o-input-n-btn__input pure-input-1"
+                    name="branch-naming"
+                    type="text"
+                    placeholder="">
+                <div class="o-input-n-btn__btn o-input-n-btn__btn--reset js-reset-btn"
+                    data-reset-target-id="branch-naming"
+                    title="Reset to default">
+                </div>
+              </div>
+              <span id="branch-naming-msg"
+                  class="pure-form-message-inline o-validation-msg">
+              </span>
+      
+              <div class="pure-controls o-form-controls">
+                <button type="submit" id="save-options" class="pure-button pure-button-primary o-submit-btn">
+                  Save
+                </button>
+              </div>
+              <div id="form-msg"
+                  class="pure-form-message-inline o-form-msg">
+              </div>
+            </fieldset>
+          </form>
+        </section>
+
+        <section class="o-options-section o-app-settings">
+          <h2>Help</h2>
+
+          <article class="o-options-subsection">
+            <h3>Pattern variables</h3>
+            <p>Patterns come with variables you need to use. Check usage instructions below the table.</p>
+            <table class="pure-table o-help-table" width="100%">
+              <thead>
+                  <tr>
+                      <th>name</th>
+                      <th>available in </th>
+                  </tr>
+              </thead>
+          
+              <tbody>
+                  <tr class="pure-table-odd">
+                      <td>issueId</td>
+                      <td>Branch naming pattern</td>
+                  </tr>
+          
+                  <tr>
+                      <td>issueName</td>
+                      <td>Branch naming pattern</td>
+                  </tr>
+              </tbody>
+            </table>
+
+            <pre class="o-code">
+    <span class="o-code__comment">issueId equals "<strong class="o-code__highlight">PROJ123i-602</strong>"</span>
+    <span class="o-code__comment">issueName equals "<strong class="o-code__highlight">Payment</strong>"</span>
+
+    <span class="o-code__comment">Branch name pattern set to:</span>
+    <span class="o-code__important">${issueId}/patryk/${issueName}</span>
+
+    <span class="o-code__comment">Returned value:</span>
+    <span class="o-code__important">PROJ123i-602/patryk/Payments</span>
+            </pre>
+
+            <p>Issue names often include extended set letters and special characters, which extension gets rid off from issue name by default before applying a pattern thanks to middlewares. Special chars are changed to spaces, special letters to basic equivalents. Bracket name prefixes are just stripped out, and too many spaces ca be prevented.</p>
+
+            <pre class="o-code">
+    <span class="o-code__comment">issueId equals "<strong class="o-code__highlight">PROJ123i-602</strong>"</span>
+    <span class="o-code__comment">issueName equals "<strong class="o-code__highlight">[COMPONENT] Błąd#@!123</strong>"</span>
+
+    <span class="o-code__comment">All middlewares active.</span>
+    <span class="o-code__comment">Branch name pattern set to:</span>
+    <span class="o-code__important">${issueId}-${issueName}</span>
+
+    <span class="o-code__comment">Returned value:</span>
+    <span class="o-code__important">PROJ123i-602-blad 123</span>
+            </pre>
+
+            <p>This functionality, provided out of the box is pretty helpful, but whitespaces are not replaced by default, regarding different user preferences. This is when pipes are coming with help!</p>
+
+            <pre class="o-code">
+    <span class="o-code__comment">issueId equals "<strong class="o-code__highlight">PROJ123i-602</strong>"</span>
+    <span class="o-code__comment">issueName equals "<strong class="o-code__highlight">Implement DATA-table component</strong>"</span>
+
+    <span class="o-code__comment">Branch name pattern set to:</span>
+    <span class="o-code__important">${issueId}-${issueName | rep : " " : "-" | lowc}</span>
+
+    <span class="o-code__comment">Returned value:</span>
+    <span class="o-code__important">PROJ123i-602-implement-datatable-component</span>
+            </pre>
+          </article>
+
+          <article class="o-options-subsection">
+            <h3>Pattern pipes</h3>
+            <p>Patterns come with pipes you might want to use for variable transformations. Check usage instructions below the table.</p>
+            <table class="pure-table o-help-table" width="100%">
+              <thead>
+                  <tr>
+                      <th>name</th>
+                      <th>descriprion</th>
+                      <th>params</th>
+                  </tr>
+              </thead>
+          
+              <tbody>
+                  <tr class="pure-table-odd">
+                    <td>lowc</td>
+                    <td><strong>lowercase</strong>, changes all chars case to lower</td>
+                    <td></td>
+                  </tr>
+                  
+                  <tr>
+                    <td>uppc</td>
+                    <td><strong>uppercase</strong>, changes all chars case to upper</td>
+                    <td></td>
+                  </tr>
+
+                  <tr class="pure-table-odd">
+                    <td>rep</td>
+                    <td>
+                      <strong>replace</strong> all text occurrences. It is case sensitive, so use <u>lowc</u> or <u>uppc</u> before if needed.
+                    </td>
+                    <td>"textToReplace", "replacement"</td>
+                  </tr>
+          
+                  <tr>
+                    <td>repf</td>
+                    <td>
+                      <strong>replace first</strong> text occurrence. It is case sensitive, so use <u>lowc</u> or <u>uppc</u> before if needed.
+                    </td>
+                    <td>"textToReplace", "replacement"</td>
+                  </tr>
+              </tbody>
+            </table>
+          </article>
+        </section>
+      </div>
+    </div>
+
+    <script src="../libs/polyfill.min.js"></script>
+    <script src="../libs/latinise.min.js"></script>
+    <script src="../scripts/options.js"></script>
+  </body>
+</html>

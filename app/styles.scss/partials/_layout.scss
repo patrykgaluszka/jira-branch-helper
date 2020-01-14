@@ -1,0 +1,59 @@
+.l-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.l-box {
+  max-width: 900px;
+  min-width: 450px;
+  padding-top: 20px;
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+.o-app-header {
+  margin-bottom: 20px;
+  
+  &__logo {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  &__title {
+    text-align: center;
+  }
+  
+  &__author {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
+
+.o-options-section {
+  border-top: 1px solid #ccc;
+  margin: 40px 0;
+}
+
+.o-options-subsection {
+  margin: 30px 0;
+}
+
+.o-test-box {
+  background-color: #f0f5fa;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  
+  &__header {
+    font-size: 1em;
+    margin: 0;
+    padding: 15px 15px;
+    // cursor: pointer;
+  }
+  
+  &__form {
+    font-size: 1em;
+    margin: 0;
+    padding: 0 15px 10px;
+  }
+}

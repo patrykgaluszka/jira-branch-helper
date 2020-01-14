@@ -1,0 +1,21 @@
+.o-help-table {
+  margin-bottom: 20px;
+}
+
+.o-code {
+  background-color: #f0f5fa;
+  padding: 20px 0;
+  
+  &__comment {
+    color: #888585;
+  }
+  
+  &__highlight {
+    color: #0178e7;
+  }
+  
+  &__important {
+    color: #000;
+    font-weight: bold;
+  }
+}

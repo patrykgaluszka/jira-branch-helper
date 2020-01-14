@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Jira branch helper",
+    "description": "Copy branchname with just one click!"
+  },
+  "appDescription": {
+    "message": "Jira branch helper",
+    "description": "Copy branchname with just one click!"
+  }
+}
