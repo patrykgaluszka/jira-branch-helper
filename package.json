@@ -21,6 +21,7 @@
     "babelify": "^10.0.0",
     "browserify": "^16.5.0",
     "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
     "del": "^2.2.0",
     "eslint-scope": "^5.0.0",
     "gulp": "^3.9.1",
@@ -35,7 +36,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-load-plugins": "^1.2.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^2.2.0",
+    "gulp-sass": "^2.3.2",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
@@ -69,6 +70,12 @@
         2,
         "single"
       ]
+    }
+  },
+  "dependencies": {},
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
     }
   }
 }

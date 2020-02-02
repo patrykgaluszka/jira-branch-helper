@@ -153,7 +153,7 @@ gulp.task('wiredep', () => {
 gulp.task('package', function () {
   var manifest = require('./dist/manifest.json');
   return gulp.src('dist/**')
-      .pipe($.zip('Jira-branch-brancher-' + manifest.version + '.zip'))
+      .pipe($.zip('jira-branch-helper-' + manifest.version + '.zip'))
       .pipe(gulp.dest('package'));
 });
 

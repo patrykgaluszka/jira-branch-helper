@@ -9,11 +9,25 @@ import {
 } from './helpers/dom.helper';
 
 import { selectors } from './config/jira-selectors.js'
+import { MESSAGE } from './config/message-codes';
 
-window.onload = () => {
+function tryLater(wait = 500) {
+  window.setTimeout(() => {
+    init();
+  }, wait);
+}
+
+function init() {
   const jiraPage = !!document.querySelector(selectors.jiraPage);
   
   if (jiraPage) {
+    const $issueLoader = document.querySelector(selectors.issueLoading);
+
+    if ($issueLoader) {
+      tryLater();
+      return;
+    }
+
     const $issueId = document.querySelector(selectors.issueId);
     const $issueName = document.querySelector(selectors.issueName);
     
@@ -40,4 +54,15 @@ window.onload = () => {
       }
     }
   }
+}
+
+chrome.runtime.onMessage.addListener(
+  function(request) {
+    if (request.message === MESSAGE.URL_CHANGE) {
+      tryLater();
+    }
+});
+
+window.onload = () => {
+  init();
 };
